@@ -1,0 +1,32 @@
+{% extends "home/base.html" %}
+{% block content %}
+
+	<!-- Search form -->
+	<form class="form-inline md-form mr-auto mb-4">
+	  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name = 'search'>
+	  <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
+	</form>
+
+	{% for tweet in tweets %}
+		
+		<!-- Bootstrap article wrap -->
+		<article class="media content-section">
+		  <div class="media-body">
+		    <div class="article-metadata">
+		      <a class="mr-2" href="http://www.twitter.com/{{ tweet.username }}">{{ tweet.username }}</a>
+		      <small class="text-muted">{{ tweet.date_posted }}</small>
+		    </div>
+		    <p class="article-content">{{ tweet.content }}</p>
+		    <p class="article-content"><b>Likes:</b> {{ tweet.likes }} <b>Retweets:</b> {{ tweet.retweets }}</p>
+		  </div>
+		</article>
+
+	{% endfor %}
+
+	<!--
+		<h4>{{ tweet.username }} on {{ tweet.date_posted }}</h4>
+		<p>{{ tweet.content }}</p>
+		<p>Likes: {{ tweet.likes }} Retweets: {{ tweet.retweets }}</p>
+	-->
+	
+{% endblock content %}
